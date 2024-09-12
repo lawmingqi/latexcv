@@ -236,7 +236,6 @@
 % Renders a a CV section headline with a nice underline in main color.
 % param 1: section title
 \newcommand{\cvsection}[1] {
-	\vspace{14pt}
 	\cvtext{
 		\textbf{\LARGE{\textcolor{darkcol}{\uppercase{#1}}}}\\[-4pt]
 		\textcolor{royalpurple}{ \rule{0.1\textwidth}{2pt} } \\
@@ -287,7 +286,7 @@
 	% if you need more control on page breaks, remove the parbox
 	\parbox{\mpwidth}{
 		\begin{tabular*}{1\mpwidth}{p{0.72\mpwidth}  r}
-	 		\textcolor{black}{\textbf{#2}} & \colorbox{maincol}{\makebox[0.25\mpwidth]{\textcolor{white}{#1}}} \\
+	 		\textcolor{black}{\textbf{#2}} & \colorbox{maincol}{\makebox[0.25\mpwidth]{\textit{#1}}} \\[3pt]
 			\textcolor{royalpurple}{\textbf{#3}} & \\
 		\end{tabular*}\\[8pt]
 	
@@ -303,14 +302,12 @@
 
 	\ifthenelse{\isempty{#6}}{}{
 		\vspace{9pt}
-		\cvtext{\textbf{Technologies include:}}\\
-		{#6}
+		\cvtext{\textbf{#6}}
 	}
 
 	\ifthenelse{\isempty{#7}}{}{
 		\vspace{9pt}
-		\cvtext{\textbf{Achievements include:}}\\
-		{#7}
+		\cvtext{#7}
 	}
 	\vspace{14pt}
 }
@@ -339,17 +336,63 @@
 }
 
 %---------------------------------------------------------------------------------------
-%	QR CODE
+%	Projects
 %----------------------------------------------------------------------------------------
 
-% Renders a qrcode image (centered, relative to the parentwidth)
-% param 1: percent width, from 0 to 1
-\newcommand{\cvqrcode}[1] {
-	\begin{center}
-		\includegraphics[width={#1}\mpwidth]{qrcode}
-	\end{center}
+\newcommand{\projects}[6] {
+    \textcolor{royalpurple} {\textbf{#1}} \\[5pt]
+    
+    \ifthenelse{\isempty{#2}}{} { 
+        \textbf{#2} \hfill \colorbox{maincol}{\makebox[0.25\textwidth]{\textit{#3}}} \\[5pt]
+    }
+
+    \ifthenelse{\isempty{#4}}{} {
+        \textbf{Technologies used:} 
+        \begin{itemize}
+            #4
+        \end{itemize}
+    }
+
+    \ifthenelse{\isempty{#5}}{} {
+        \textbf{Skills learned:} #5 \\[10pt]
+    }
+
+    \ifthenelse{\isempty{#6}}{} {
+        \textbf{Project highlights:} 
+        \begin{itemize} \itemsep 0pt
+            #6 
+        \end{itemize}
+    }
 }
 
+%---------------------------------------------------------------------------------------
+%	Activities
+%----------------------------------------------------------------------------------------
+
+\newcommand{\activities}[6] {
+    \textcolor{royalpurple} {\textbf{#1}} \\[5pt]
+    \textbf{#2} \hfill \colorbox{maincol}{\makebox[0.15\textwidth]{\textit{#3}}} \\[5pt]
+	\textbf{Program Overview:} #4 \\[10pt]
+	\textbf{Key Activities:}
+	\begin{itemize}
+		#5
+	\end{itemize}
+	\textbf{Skills Gained:} 
+	\begin{itemize}
+		#6
+	\end{itemize}
+}
+
+%---------------------------------------------------------------------------------------
+%	Awards
+%----------------------------------------------------------------------------------------
+
+\newcommand{\cvaward}[2]{
+    \parbox{\textwidth}{
+        \textbf{#1} \\[5pt] % Year in bold
+        #2 % Award details
+    } \\[10pt] % Add some space after each award block
+}
 
 %============================================================================%
 %
@@ -370,7 +413,7 @@
 %---------------------------------------------------------------------------------------
 %	META IMAGE
 %----------------------------------------------------------------------------------------
-\includegraphics[width=\linewidth]{untitled.jpg}	%trimming relative to image size
+\includegraphics[width=\linewidth]{untitled.jpg} \\[34pt]	%trimming relative to image size
 
 %---------------------------------------------------------------------------------------
 %	META SKILLS
@@ -409,7 +452,6 @@
 \end{minipage}\\[6pt]
 	
 \vfill\null
-\cvqrcode{0.7}
 
 %---------------------------------------------------------------------------------------
 %	EDUCATION
@@ -437,7 +479,6 @@ Technology}
 {}
 
 \vfill\null
-\cvqrcode{0.7}
 
 %---------------------------------------------------------------------------------------
 %	CERTIFICATION
@@ -470,12 +511,10 @@ Technology}
 {}
 {I believe in continuously expanding my knowledge beyond the classroom by exploring topics through online resources. I regularly take tutorials on platforms like LinkedIn and YouTube to reinforce what I’ve learned in class and to dive deeper into concepts.}
 \vfill
-\cvqrcode{0.7}
 
 \newpage
 \mbox{} % hotfix to place qrcode on the bottom when there are not other elements
 \vfill
-\cvqrcode{0.7}
 
 \end{leftcolumn}
 \begin{rightcolumn}
@@ -488,7 +527,7 @@ Technology}
 		\textcolor{white}{ \rule{0.1\textwidth}{1.25pt} } \\[4pt]
 		\large{ \textcolor{white} {Information Technology Student} }
 	\end {center}
-\end{minipage}} \\[14pt]
+\end{minipage}} \\[-25pt]
 \vspace{-12pt}
 
 %---------------------------------------------------------------------------------------
@@ -503,7 +542,7 @@ Driven by a passion for emerging technologies like quantum computing and DevOps,
 
 Adaptable and dedicated, with experience contributing effectively to diverse IT projects. Strong collaborator, ready to apply academic and industry knowledge to real-world challenges and looking to leverage acquired skills in a business setting.\\
 
-}
+} 
 
 %---------------------------------------------------------------------------------------
 %	WORK EXPERIENCE
@@ -537,84 +576,138 @@ Adaptable and dedicated, with experience contributing effectively to diverse IT 
 	{}
 	{}
 
-\cvevent
-	{Oct 11 - Oct 12}
-	{IT Consultant}
-	{Accenture Tech. Solutions}
-	{Large public service project with the goal to establish a platform for handling of finance processes with a very high number of transactions. Main focus was the migration of legacy data, by assuring data quality and transformation into various formats}
-	{\cvlist{
-		\item Customer consulting with regard to loading / unloading interfaces
-		\item Definition of requirements for transformation of legacy data
-		\item Implementation of algorithms for data transformation
-		\item Tool development for secure data transport
-		\item Tool development for tests of data quality/interface implementation
-	}}
-	{\cvlist {
-		\item Standard Linux tools, such as awk, sed, grep, ...
-		\item Python for in-depth data analysis
-		\item Java for transport layers
-		\item IBM DataStage
-	}}
-	{\cvlist{
-		\item Definition of uniform standards
-		\item Introduction of the standard Linux stack as global toolset for data analysis in project
-	}}
 \vfill\null
 
 %---------------------------------------------------------------------------------------
-%	ACHIEVEMENTS 
+%	AWARDS 
 %----------------------------------------------------------------------------------------
 \vfill\null
-\cvsection{ACHIEVEMENTS}
+\cvsection{AWARDS}
 
-\cvevent
-    {2019}
-    {\cvlist{
-        \item Edusave Scholarship Award from Ministry of Education
-    }}
-	{}
-	{}
-	{}
-	{}
-	{}
+\cvaward{2019}{
+	Edusave Scholarship Award from Ministry of Education (MOE)}
 
-\cvevent
-	{Dec 2022 - Jan 2023}
-	{Retail Assistant}
-	{NTUC - Singapore}
-	{}
-	{\cvlist{
-		\item Actively engaged with customers, providing general assistance and information on store merchandise to enhance the shopping experience.
-		\item Replenished stock on the sales floor and maintained organized shelves, racks to ensure an attractive and easy-to-navigate store layout.
-		\item Greeted customers, helped locate merchandise, and suggested suitable options.
-	}}
-	{}
-	{}
+\cvaward{2022}{
+    Edusave Scholarship Award from MOE \\
+    Edusave Award for Achievement, Good Leadership and Service \\
+    Edusave Character Award
+}
 
-\cvevent
-	{Oct 11 - Oct 12}
-	{IT Consultant}
-	{Accenture Tech. Solutions}
-	{Large public service project with the goal to establish a platform for handling of finance processes with a very high number of transactions. Main focus was the migration of legacy data, by assuring data quality and transformation into various formats}
-	{\cvlist{
-		\item Customer consulting with regard to loading / unloading interfaces
-		\item Definition of requirements for transformation of legacy data
-		\item Implementation of algorithms for data transformation
-		\item Tool development for secure data transport
-		\item Tool development for tests of data quality/interface implementation
-	}}
-	{\cvlist {
-		\item Standard Linux tools, such as awk, sed, grep, ...
-		\item Python for in-depth data analysis
-		\item Java for transport layers
-		\item IBM DataStage
-	}}
-	{\cvlist{
-		\item Definition of uniform standards
-		\item Introduction of the standard Linux stack as global toolset for data analysis in project
-	}}
+
 \vfill\null
 
+%---------------------------------------------------------------------------------------
+%	CO-CURRICULAR ACTIVITIES 
+%----------------------------------------------------------------------------------------
+\vfill\null
+\cvsection{CO-CURRICULAR ACTIVITIES (CCA)}
+
+\cvevent
+	{2019 - 2022}
+	{Orchid Park Secondary School}
+	{Wushu}
+	{\cvlist{
+		\item \textbf{Captain}, Wushu School Team (2021 - 2022) – Led team training and provided coaching support.
+		\item Participated in the \textbf{National School Games (NSG)} in 2021 and 2022.
+		\item Achieved \textbf{Top 10} in the 2022 NSG for 1st International Nandao Female \\category.
+	}}
+	{}
+	{}
+	{}
+
+\cvevent
+	{2023 - Present}
+	{Ngee Ann Polytechnic}
+	{Wushu}
+	{\cvlist{
+		\item \textbf{Vice-Captain}, Wushu School Team (2023 - 2024) \\ – Organize training sessions and led team for competition and performance preparations.
+		\item Responsible for choreographing routines for \textbf{group events}.
+		\item \textbf{2nd Place}, NTU Invitational Wushu Championship 2023.
+		\item \textbf{1st Prize}, Youth Category Female, 1st International Nandao.
+		\item \textbf{1st Prize}, Open Category Group Event Non-weapon.
+		\item \textbf{Performances}: 2024 Duanwu Delight (Chinese Culture Performance), Ngee Ann Kongsi Cheque Presentation Ceremony 2024.
+	}}
+	{}
+	{\\\textcolor{royalpurple}{\textbf{Special Interest Group }}}
+	{\cvlist{
+		\item \textbf{Overflow:} \\
+		Participated in a 3-day Data Structures and Algorithms Bootcamp, focused on problem-solving using Python.
+		\item \textbf{ICT Society:} \\
+		Assisted in the 2024 Graduation Ceremony for School of ICT to ensure smooth execution of the event.
+	}}
+	{}
+
+\vfill\null
+
+%---------------------------------------------------------------------------------------
+%	ACADEMIC PROJECTS / COMPETITION PROJECTS 
+%----------------------------------------------------------------------------------------
+\vfill\null
+\cvsection{ACADEMIC PROJECTS / COMPETITION PROJECTS }
+
+\projects
+    {Competition: National AI Student Challenge 2024}
+    {Track 2 Amazon Web Services (AWS)}
+    {Feb 2024 - March 2024}
+    { 
+        \item Amazon SageMaker
+        \item AWS Cloud Services
+        \item Large language model (LLM) - LLaMA-2-7B-Chat 
+    }
+    {
+        \\\\
+		\textbf{LLM Fine-Tuning:} Experimented with and adjusted various hyperparameters such as epochs, learning rate, and batch size to optimize the performance of the model for specific tasks.\\[5pt]
+        \textbf{AWS SageMaker:} Gained hands-on experience with AWS SageMaker Jumpstart for managing end-to-end machine learning workflows, including model training and deployment.\\[5pt]
+        \textbf{Data Preparation and Augmentation:} Learned to prepare custom datasets to enhance model performance.\\[5pt]
+    }
+    {}
+
+\projects
+    {Module: Back-end Development}
+    {Community Engagement Website}
+    {May 2024 - Jul 2024}
+    { 
+        \item Front-end: HTML, CSS, Javascript, Bootstrap
+        \item Database: Firebase, MSSQL
+        \item Back-end: Node.js, Express.js
+        \item Tools: Firebase Cloud Storage, RESTful APIs, CRUD operations
+    }
+    {Middleware implementation, Graceful error handling, Firebase integration, User authentication (JWT), Responsive web design, CRUD operations, Real-time updates, RESTful API design}
+	{
+        \item Developed a \textbf{community club website} for users to \textbf{register}, \textbf{log in}, \textbf{update profile}, \textbf{book facilities}, \textbf{register for events}, and \textbf{provide feedback}, enhancing engagement and accessibility for club members.
+        \item Designed a \textbf{responsive}, \textbf{user-friendly front-end} that ensures seamless access across devices.
+        \item Integrated \textbf{Firebase} for \textbf{profile picture management}. Uploaded images are stored as files in \textbf{Firebase Storage}, with each image accessible via a unique \textbf{URL}.
+        \item Implemented \textbf{authentication and authorization} using \textbf{JWT} and data protection measures through a hashing function, \textbf{bcrypt}.
+        \item Managed backend data with \textbf{MSSQL}, handling \textbf{event registration}, \textbf{user profiles}, and \textbf{real-time announcements}.
+        \item Developed \textbf{staff functionalities} with a dedicated \textbf{login system}, enabling staff to \textbf{manage} and \textbf{update website features}. Non-staff users have no access to these rights. \\[10pt]
+    }
+
+
+\vfill\null
+
+
+%---------------------------------------------------------------------------------------
+%	ACTIVITIES
+%----------------------------------------------------------------------------------------
+\vfill\null
+\cvsection{ACTIVITIES}
+
+\activities
+	{Internation Experience}
+	{Overseas Immersion Programme to Shenzhen, China}
+	{March 2024}
+	{Participated in a 2 weeks long immersion program in Shenzhen, China, focusing on both industrial and cultural visits}
+	{
+        \item \textbf{Industry Visits:} Engaged with leading tech companies and startups in Shenzhen such as Tencent and Minieye Technology, gaining insights into cutting-edge technologies and industry trends.
+        \item \textbf{Cultural Exchange:} Immersed in Chinese culture like Wushu and Calligraphy and interacted with the professionals and students there, developing cross-cultural communication skills.
+        \item \textbf{Cultural Visits:} Explored historic sites like Gankeng Hakka Town, enriching my understanding of traditional architecture and local customs while deepening my connection to Shenzhen’s cultural heritage.}
+    {
+        \item \textbf{Global Perspective:} Enhanced understanding of international IT trends and global market dynamics and competitions.
+        \item \textbf{Technical Knowledge:} Gained exposure to technologies in China to power a range of applications from intelligent assistants to immersive gaming experiences.
+        \item \textbf{Cultural Competence:} Improved ability to work in diverse cultural settings and communicate across cultures.
+    }
+
+\vfill\null
 
 % hotfixes to create fake-space to ensure the whole height is used
 \mbox{}
