@@ -106,6 +106,11 @@
     \vcenteredhbox{\icon{#1}{#2}{#5}}  \hspace{2pt} \href{mailto:#4}{\textcolor{#5}{#3}}
 }
 
+% icon with linkedIn link
+\newcommand{\iconlinkedin}[2]{ 						
+    \faLinkedin \href{#1}{\textcolor{black}{LinkedIn}}
+}
+
 %----------------------------------------------------------------------------------------
 %	PAGE LAYOUT  DEFINITIONS
 %----------------------------------------------------------------------------------------
@@ -174,10 +179,10 @@
 % \definecolor{accentcol}{RGB}{ 250, 150, 10 }
 
 % dark color
-\definecolor{darkcol}{RGB}{ 70, 70, 70 }
+\definecolor{darkcol}{RGB}{ 70, 70, 70}
 
 % light color
-\definecolor{lightcol}{RGB}{245,245,245}
+\definecolor{lightcol}{RGB}{220, 220, 220}
 
 % periwinkle
 \definecolor{periwinkle}{RGB}{204, 204, 255}
@@ -252,16 +257,19 @@
 % param 3: percent, values range from 0 to 1
 \newcommand{\cvskill}[3] {
 	\begin{tabular*}{1\mpwidth}{p{0.72\mpwidth}}
- 		\textcolor{black}{\textbf{#1}} \\ % Skill Title on one line
-        \textcolor{royalpurple}{\parbox[t]{1.5\mpwidth}{#2}} % Skills below the title
-	\end{tabular*}%
+ 		\textcolor{black}{\textbf{#1}} \\ 
+        \textcolor{royalpurple}{\parbox[t]{1.5\mpwidth}{#2}}
+	\end{tabular*}
 	
-	\hspace{4pt}
+	\hspace{2pt}
 	\begin{tikzpicture}[scale=1,rounded corners=2pt,very thin]
-		\fill [lightcol] (0,0) rectangle (1\mpwidth, 0.15);
-		\fill [periwinkle] (0,0) rectangle (#3\mpwidth, 0.15);
-  	\end{tikzpicture}%
+		\node[anchor=east] at (-0.05, 0.075) {\small 0\%};
+		\fill [lightcol] (0,0) rectangle (0.7\mpwidth, 0.15);
+		\fill [periwinkle] (0,0) rectangle (#3*0.7\mpwidth, 0.15);
+		\node[anchor=west] at (0.7\mpwidth, 0.075) {\small 100\%};
+  	\end{tikzpicture}
 }
+
 
 
 
@@ -358,7 +366,7 @@
     }
 
     \ifthenelse{\isempty{#6}}{} {
-        \textbf{Project highlights:} 
+        \textbf{Core Deliverables:} 
         \begin{itemize} \itemsep 0pt
             #6 
         \end{itemize}
@@ -369,18 +377,32 @@
 %	Activities
 %----------------------------------------------------------------------------------------
 
+\usepackage{ifthen}
+
 \newcommand{\activities}[6] {
     \textcolor{royalpurple} {\textbf{#1}} \\[5pt]
-    \textbf{#2} \hfill \colorbox{maincol}{\makebox[0.15\textwidth]{\textit{#3}}} \\[5pt]
-	\textbf{Program Overview:} #4 \\[10pt]
-	\textbf{Key Activities:}
-	\begin{itemize}
-		#5
-	\end{itemize}
-	\textbf{Skills Gained:} 
-	\begin{itemize}
-		#6
-	\end{itemize}
+    
+    \ifthenelse{\isempty{#2}}{}{ 
+        \textbf{#2} \hfill \colorbox{maincol}{\makebox[0.15\textwidth]{\textit{#3}}} \\[5pt]
+    }
+
+    \ifthenelse{\isempty{#4}}{}{
+        \textbf{Program Overview:} #4 \\[10pt]
+    }
+
+    \ifthenelse{\isempty{#5}}{}{
+        \textbf{Key Activities:}
+        \begin{itemize}
+            #5
+        \end{itemize}
+    }
+
+    \ifthenelse{\isempty{#6}}{}{
+        \textbf{Skills Gained:} 
+        \begin{itemize}
+            #6
+        \end{itemize}
+    }
 }
 
 %---------------------------------------------------------------------------------------
@@ -413,77 +435,68 @@
 %---------------------------------------------------------------------------------------
 %	META IMAGE
 %----------------------------------------------------------------------------------------
-\includegraphics[width=\linewidth]{6275921855365889224.jpg} \\[34pt]	%trimming relative to image size
+\includegraphics[width=\linewidth]{6275921855365889224.jpg}	%trimming relative to image size
+
+%---------------------------------------------------------------------------------------
+%	META CONTACT
+%----------------------------------------------------------------------------------------
+\vspace{27pt}
+\cvsection{CONTACT} 
+	
+\icontext{MapMarker}{12}{30 Woodlands Dr 16, \\Forestville 11\#22\\Singapore 737769}{black}\\[6pt]
+\icontext{MobilePhone}{12}{+65 98881351}{black}\\[6pt]
+\begin{minipage}{\textwidth}
+	\iconemail{Envelope}{12}{lawmingqi1818@gmail.com}{}{black}\\[6pt]
+\end{minipage}\\[6pt]
+
+\begin{minipage}{\textwidth}
+	\iconlinkedin{https://www.linkedin.com/in/law-ming-qi/}{black}\\[6pt]
+\end{minipage}
+
 
 %---------------------------------------------------------------------------------------
 %	META SKILLS
 %----------------------------------------------------------------------------------------
+\vspace{10pt}
+
 \cvsection{SKILLS}
 
-\cvskill{Python} {} {1} \\[-2pt]
-
-\cvskill{Javascript} {} {0.9} \\[-2pt]
+\cvskill{Python} {} {0.9} \\[-2pt]
 
 \cvskill{C\#} {} {0.7} \\[-2pt]
 
-\cvskill{Java} {} {0.4} \\[-2pt]
+\cvskill{Javascript} {Frontend, Backend} {0.8} \\[-2pt]
 
-\cvskill{Databases \& SQL} {Firebase, MSSQL} {0.9} \\[-2pt]
+\cvskill{HTML \& CSS} {} {0.89} \\[-2pt]
 
-\cvskill{Back-end Development} {JavaScript, Node.js, Express.js} {0.85} \\[-2pt]
+\cvskill{Node.js \& Express.js} {Backend Development} {0.8} \\[-2pt]
 
-\cvskill{Front-end Development} {HTML, CSS, JavaScript, Bootstrap} {0.85} \\[-2pt]
+\cvskill{MSSQL} {} {0.9} \\[-2pt]
 
-\cvskill{User Experience Design} {Figma, Adobe} {0.8} \\[-2pt]
+\cvskill{Design Tools} {Figma, Adobe, Canva} {0.75} \\[-2pt]
 
-\cvskill{GIT} {} {0.7} \\[-2pt]
-
-
-
-
-\vfill\null
-\cvsection{CONTACT}
-	
-\icontext{MapMarker}{12}{30 Woodlands Dr 16, Forestville 11\#22\\Singapore 737769}{black}\\[6pt]
-\icontext{MobilePhone}{12}{+65 98881351}{black}\\[6pt]
-\begin{minipage}{\textwidth}
-	\iconemail{Envelope}{12}{lawmingqi1818@gmail.com}{}{black}\\
-	School: S10257808@connect.np.edu.sg
-\end{minipage}\\[6pt]
-	
-\vfill\null
+\cvskill{GIT} {} {0.6} \\[-2pt]
 
 %---------------------------------------------------------------------------------------
-%	EDUCATION
+% AWARDS 
 %----------------------------------------------------------------------------------------
 \newpage
-\cvsection{EDUCATION}
+\cvsection{AWARDS}
 
-\cvmetaevent
-{2019 - 2022}
-{GCE 'O'Level Certificate}
-{Orchid Park Secondary School}
-{Achieved \textbf{6 distinctions} in\\ E Maths, A Maths, Chinese,\\Science (Bio/Chem), \\Principles of Accounts,\\ Humanities (Social Studies/ History)  \\
-
-L1R4: 11
-
-L1R5: 13
-
+\cvaward{2022}{
+    - Edusave Scholarship Award from MOE \\ 
+    - Eagles Award\\
+    - Edusave Character Award
+}
+\cvaward{2019}{
+	- Edusave Scholarship Award from \\Ministry of Education (MOE)
 }
 
-\cvmetaevent
-{Apr 2023 - Present}
-{Diploma in Information \\
-Technology}
-{Ngee Ann Polytechnic}
-{}
-
-\vfill\null
 
 %---------------------------------------------------------------------------------------
 %	CERTIFICATION
 %----------------------------------------------------------------------------------------
-\newpage
+\vspace{300pt}
 \cvsection{CERTIFICATIONS}
 
 \cvmetaevent
@@ -502,15 +515,7 @@ Technology}
 	\item Agile Project Management
 	\item Project Initiation: Starting a Successful Project
 }}
-{Intense course designed to equip learners with in-demand project management skills.}
-
-
-\cvmetaevent
-{Online Tutorials}
 {}
-{}
-{I believe in continuously expanding my knowledge beyond the classroom by exploring topics through online resources. I regularly take tutorials on platforms like LinkedIn and YouTube to reinforce what I’ve learned in class and to dive deeper into concepts.}
-\vfill
 
 \newpage
 \mbox{} % hotfix to place qrcode on the bottom when there are not other elements
@@ -524,83 +529,104 @@ Technology}
 \fcolorbox{white}{royalpurple}{\begin{minipage}[c][3.5cm][c]{1\mpwidth}
 	\begin {center}
 		\HUGE{ \textbf{ \textcolor{white}{ \uppercase{ Law Ming Qi } } } } \\[-24pt]
-		\textcolor{white}{ \rule{0.1\textwidth}{1.25pt} } \\[4pt]
-		\large{ \textcolor{white} {Passionate Software Developer} }
+		\textcolor{white}{ \rule{0.1\textwidth}{1.25pt}\\ }
+		\large{ \textcolor{white} {Passionate Software Developer} } 
 	\end {center}
 \end{minipage}}
 
 %---------------------------------------------------------------------------------------
 %	PROFILE
 %----------------------------------------------------------------------------------------
-
-\vfill\null
+\vspace{30pt}
 \cvsection{PROFILE}
 
-\cvtext{Proactive and goal-oriented IT student promoting well-developed skills in backend and frontend development and database management. Engaging demeanor known for working well in deadline-driven environments. \\
+\cvtext{
+	I am a proactive IT student with a keen interest in the technology that shapes our daily lives and how it can be leveraged to drive innovation. 
+	My passion extends to understanding the intricacies of technology, including the fascinating world of hacking. 
+	As an adaptable team player equipped with skills in backend, frontend development and database management, I thrive in fast-paced, deadline-driven environment
+	and I am ready to apply both my academic and industry knowledge to tackle real-world challenges. 
+	I remain committed to continuous learning and personal growth, always seeking to deepen my understanding of technology and its impact on society.
 
-Driven by a passion for emerging technologies like quantum computing and DevOps, eager to explore these fields while strengthening core technical skills. Committed to continuous learning and growth in IT, with a focus on building scalable and maintainable solutions.\\
+}
 
-Adaptable and dedicated, with experience contributing effectively to diverse IT projects. Strong collaborator, ready to apply academic and industry knowledge to real-world challenges and looking to leverage acquired skills in a business setting.\\
+%---------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+\vspace{25pt}
+\cvsection{EDUCATION}
 
-} 
+\cvevent
+{Apr 2023 - Present}
+{Ngee Ann Polytechnic}
+{Diploma in Information Technology}
+{} 
+{} 
+{} 
+{}
 
+\cvevent
+{2019 - 2022}
+{Orchid Park Secondary School}
+{GCE 'O' Level Certificate}
+{Achieved \textbf{6 distinctions} in E Maths, A Maths, Chinese, Science (Bio/Chem), \\Principles of Accounts, Humanities (Social Studies/History)
+\\\\L1R4: 9, L1R5: 11
+}
+{}
+{} 
+{} 
+{} 
 %---------------------------------------------------------------------------------------
 %	WORK EXPERIENCE
 %----------------------------------------------------------------------------------------
-\vfill\null
+\vspace{25pt}
 \cvsection{WORK EXPERIENCE}
 
+\cvevent 
+{Aug 2023 - Oct 2023} 
+{Retail and E-commerce Associate} 
+{Cold Storage - Singapore} 
+{\cvlist{ \item Processed online orders and ensured timely delivery while assisting customers. }} 
+{} 
+{}
+{}
 
-\cvevent
-	{Dec 2022 - Jan 2023}
-	{Retail Assistant}
-	{NTUC - Singapore}
-	{}
-	{\cvlist{
-		\item Actively engaged with customers, providing general assistance and information on store merchandise to enhance the shopping experience.
-		\item Replenished stock on the sales floor and maintained organized shelves, racks to ensure an attractive and easy-to-navigate store layout.
-		\item Greeted customers, helped locate merchandise, and suggested suitable options.
-	}}
-	{}
-	{}
-
-\cvevent
-    {Aug 2023 - Oct 2023}
-    {Retail and E-commerce Associate}
-    {Cold Storage - Singapore}
-	{}
-    {\cvlist{
-        \item Managed Online Orders: Processed and fulfilled online orders via Food Panda, ensuring timely and accurate delivery of grocery items.
-        \item Grocery Selection and Replenishment: Picked and packed groceries efficiently, replenished stock, and ensured shelves were well-stocked to meet customer demand.
-        \item Customer Assistance: Assisted customers in finding products, providing exceptional service, and addressing inquiries promptly to enhance the shopping experience.
-    }}
-	{}
-	{}
+\cvevent 
+{Dec 2022 - Jan 2023} 
+{Retail Assistant} 
+{NTUC - Singapore} 
+{\cvlist{ \item Provided customer assistance and maintained organized shelves. }} 
+{}
+{}
+{\textbf{Soft Skills Obtained}: 
+\\Effective communication with customers and team member 
+\\Strong ability to work in fast-paced environments
+\\Work collaboratively in a team
+\\Adaptability to changing customer needs}
 \vfill\null
 
-%---------------------------------------------------------------------------------------
-%	AWARDS 
-%----------------------------------------------------------------------------------------
-\vfill\null
-\cvsection{AWARDS}
-
-\cvaward{2019}{
-	Edusave Scholarship Award from Ministry of Education (MOE)}
-
-\cvaward{2022}{
-    Edusave Scholarship Award from MOE \\
-    Edusave Award for Achievement, Good Leadership and Service \\
-    Edusave Character Award
-}
-
-
-\vfill\null
 
 %---------------------------------------------------------------------------------------
 %	CO-CURRICULAR ACTIVITIES 
 %----------------------------------------------------------------------------------------
-\vfill\null
+\newpage
 \cvsection{CO-CURRICULAR ACTIVITIES (CCA)}
+
+\cvevent
+	{2023 - Present}
+	{Ngee Ann Polytechnic}
+	{Wushu}
+	{\cvlist{
+		\item \textbf{Captain}, Wushu School Team \\ –Organize training sessions and led team for competition and performance preparations.
+		\item \textbf{3rd Place}, NTU Invitational Wushu Championship 2024 Traditional Northern Fist.
+		\item \textbf{3rd Place}, NTU Invitational Wushu Championship 2024 Group Routine, Fist.
+		\item \textbf{2nd Place}, NTU Invitational Wushu Championship 2023 Traditional Other Fist.
+		\item \textbf{1st Prize}, Youth Category Female, 1st International Nandao.
+		\item \textbf{1st Prize}, Open Category Group Event Non-weapon.
+	}}
+	{}
+	{}
+	{}
+	{}
 
 \cvevent
 	{2019 - 2022}
@@ -615,117 +641,65 @@ Adaptable and dedicated, with experience contributing effectively to diverse IT 
 	{}
 	{}
 
-\cvevent
-	{2023 - Present}
-	{Ngee Ann Polytechnic}
-	{Wushu}
-	{\cvlist{
-		\item \textbf{Vice-Captain}, Wushu School Team (2023 - 2024) \\ – Organize training sessions and led team for competition and performance preparations.
-		\item Responsible for choreographing routines for \textbf{group events}.
-		\item \textbf{2nd Place}, NTU Invitational Wushu Championship 2023.
-		\item \textbf{1st Prize}, Youth Category Female, 1st International Nandao.
-		\item \textbf{1st Prize}, Open Category Group Event Non-weapon.
-		\item \textbf{Performances}: 2024 Duanwu Delight (Chinese Culture Performance), \\Ngee Ann KongSi Cheque Presentation Ceremony 2024.
-	}}
-	{}
-	{\\\textcolor{royalpurple}{\textbf{Special Interest Group }}}
-	{\cvlist{
-		\item \textbf{Overflow:} \\
-		Participated in a 3-day Data Structures and Algorithms Bootcamp, focused on problem-solving using Python.
-		\item \textbf{ICT Society:} \\
-		Assisted in the 2024 Graduation Ceremony for School of ICT to ensure smooth execution of the event.
-	}}
-	{}
-
-\vfill\null
 
 %---------------------------------------------------------------------------------------
 %	ACADEMIC PROJECTS / COMPETITION PROJECTS 
 %----------------------------------------------------------------------------------------
-\vfill\null
-\cvsection{ACADEMIC PROJECTS / COMPETITION PROJECTS }
+\vspace{30pt}
+\cvsection{ACADEMIC PROJECTS / COMPETITION PROJECTS }\\[20pt]
 
-\projects
+\projects 
     {Competition: National AI Student Challenge 2024}
-    {Track 2 Amazon Web Services (AWS)}
+    {Track 2: Amazon Web Services (AWS)}
     {Feb 2024 - March 2024}
     { 
         \item Amazon SageMaker
         \item AWS Cloud Services
-        \item Large language model (LLM) - LLaMA-2-7B-Chat 
-    }
-    {
-        \\\\
-		\textbf{LLM Fine-Tuning:} Experimented with and adjusted various hyperparameters such as epochs, learning rate, and batch size to optimize the performance of the model for specific tasks.\\[5pt]
-        \textbf{AWS SageMaker:} Gained hands-on experience with AWS SageMaker Jumpstart for managing end-to-end machine learning workflows, including model training and deployment.\\[5pt]
-        \textbf{Data Preparation and Augmentation:} Learned to prepare custom datasets to enhance model performance.\\[5pt]
+        \item LLaMA-2-7B-Chat (Large Language Model)
     }
     {}
+	{
+        \item Fine-tuned LLM by adjusting hyperparameters for optimal performance.
+        \item Utilized AWS SageMaker for managing machine learning workflows, including model training and deployment.
+        \item Prepared and augmented datasets to enhance model accuracy.
+    }
 
-\projects
+	\newpage
+\projects 
     {Module: Back-end Development}
     {Develop a community engagement website}
     {May 2024 - July 2024}
     { 
-        \item Front-end: HTML, CSS, Javascript, Bootstrap
-        \item Database: Firebase, MSSQL
-        \item Back-end: Node.js, Express.js
+        \item HTML, CSS, Javascript, Bootstrap, Firebase, MSSQL, Node.js, Express.js
         \item Tools: Firebase Cloud Storage, RESTful APIs, CRUD operations
     }
-    {Middleware implementation, Graceful error handling, Firebase integration, User authentication (JWT), Responsive web design, CRUD operations, Real-time updates, RESTful API design}
+    {}
 	{
-        \item Developed a \textbf{community club website} for users to \textbf{register}, \textbf{log in}, \textbf{update profile}, \textbf{book facilities}, \textbf{register for events}, and \textbf{provide feedback}, enhancing engagement and accessibility for club members.
-        \item Designed a \textbf{responsive}, \textbf{user-friendly front-end} that ensures seamless access across devices.
-        \item Integrated \textbf{Firebase} for \textbf{profile picture management}. Uploaded images are stored as files in \textbf{Firebase Storage}, with each image accessible via a unique \textbf{URL}.
-        \item Implemented \textbf{authentication and authorization} using \textbf{JWT} and data protection measures through a hashing function, \textbf{bcrypt}.
-        \item Managed backend data with \textbf{MSSQL}, handling \textbf{event registration}, \textbf{user profiles}, and \textbf{real-time announcements}.
-        \item Developed \textbf{staff functionalities} with a dedicated \textbf{login system}, enabling staff to \textbf{manage} and \textbf{update website features}. Non-staff users have no access to these rights. \\[10pt]
+        \item Create a platform for users to register, log in, book facilities, register for events, and provide feedback, while staff manage and update website features.
+        \item Implemented JWT-based authentication, Firebase integration for profile management, responsive design, real-time updates, and role-based access for staff.
     }
 
-\projects
-    {Module: Software Project Management}
-    {SCRUM Framework to develop a game}
-    {May 2024 - July 2024}
-    { 
-		\item Front-end: HTML, CSS, Javascript
-        \item Database: Firebase \\[5pt]
-    }
-    {
-        \\\\
-		\textbf{Agile Methodology:} Applied the Scrum framework to iteratively develop and refine the game website by organizing tasks into sprints.\\[5pt]
-		\textbf{Task Management:} Leveraged JIRA to track tasks, manage sprints, and visualize project progress.\\[5pt]
-		\textbf{Product Backlog Management:} Gained experience in reviewing and prioritizing the product backlog, ensuring tasks were well-ordered.\\[5pt]
-		\textbf{Feature Development:} Defined and prioritized backlog items, including game features, UI/UX enhancements, and bug fixes, to ensure smooth progress throughout development.\\[5pt]
-		\textbf{Importance of Feedback:} Emphasized continuous feedback during sprints to identify improvements early, ensuring alignment with project goals.\\[5pt]
-		\textbf{Ambiguity Clarification:} Worked closely with team members and product owner (lecturers in this case) to clarify any ambiguity in user stories or requirements, promoting clear communication and shared understanding.\\[5pt]
-   }
-{}
-
-\vfill\null
 
 
 %---------------------------------------------------------------------------------------
 %	ACTIVITIES
 %----------------------------------------------------------------------------------------
-\vfill\null
+\vspace{30pt}
+
 \cvsection{ACTIVITIES}
 
-\activities
-	{International Experience}
-	{Overseas Immersion Programme to Shenzhen, China}
-	{March 2024}
-	{Participated in a 2 weeks long immersion program in Shenzhen, China, focusing on both industrial and cultural visits}
-	{
-        \item \textbf{Industry Visits:} Engaged with leading tech companies and startups in Shenzhen such as Tencent and Minieye Technology, gaining insights into cutting-edge technologies and industry trends.
-        \item \textbf{Cultural Exchange:} Immersed in Chinese culture like Wushu and Calligraphy and interacted with the professionals and students there, developing cross-cultural communication skills.
-        \item \textbf{Cultural Visits:} Explored historic sites like Gankeng Hakka Town, enriching my understanding of traditional architecture and local customs while deepening my connection to Shenzhen’s cultural heritage.}
+\activities 
+    {International Experience}
+    {Overseas Immersion Programme to Shenzhen, China}
+    {March 2024}
+    {Participated in a 2-week immersion program in Shenzhen, China, focusing on industrial and cultural visits.}
+	{}
     {
-        \item \textbf{Global Perspective:} Enhanced understanding of international IT trends and global market dynamics and competitions.
-        \item \textbf{Technical Knowledge:} Gained exposure to technologies in China to power a range of applications from intelligent assistants to immersive gaming experiences.
-        \item \textbf{Cultural Competence:} Improved ability to work in diverse cultural settings and communicate across cultures.
+        \item Gained a global perspective on IT trends and market dynamics.
+        \item Acquired knowledge of advanced technologies powering AI and immersive experiences.
+        \item Enhanced cultural competence and communication skills.
     }
 
-\vfill\null
 
 % hotfixes to create fake-space to ensure the whole height is used
 \mbox{}

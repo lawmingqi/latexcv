@@ -318,6 +318,7 @@ INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\tex\latex\fontawesome\ufontaw
 INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\tex\latex\fontawesome\ufontawesometwo.fd
 INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\tex\latex\fontawesome\ufontawesometwo.fd
 INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\tfm\public\fontawesome\FontAwesome--fontawesometwo.tfm
+INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\tfm\arkandis\gillius\GilliusADF-Regular-lf-t1.tfm
 INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\tex\latex\gillius\ts1gilliusadf-lf.fd
 INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\tex\latex\gillius\ts1gilliusadf-lf.fd
 INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\tex\latex\gillius\ts1gilliusadf-lf.fd
@@ -331,13 +332,16 @@ INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\tfm\arkandis\gillius\Gi
 INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\tfm\arkandis\gillius\GilliusADF-Bold-lf-t1--lcdfj.tfm
 INPUT C:\Users\admin\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\gillius\gls_4bsedw.enc
+INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\fontawesome\fontawesometwo.enc
+INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\vf\arkandis\gillius\GilliusADF-Regular-lf-t1.vf
+INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\tfm\arkandis\gillius\GilliusADF-Regular-lf-t1--base.tfm
+INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\tfm\arkandis\gillius\GilliusADF-Regular-lf-t1--lcdfj.tfm
 INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\vf\arkandis\gillius\GilliusADF-Bold-lf-t1.vf
 INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\tfm\arkandis\gillius\GilliusADF-Bold-lf-t1--base.tfm
 INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\tfm\arkandis\gillius\GilliusADF-Bold-lf-t1--lcdfj.tfm
 INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\vf\arkandis\gillius\GilliusADF-Regular-lf-t1.vf
 INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\tfm\arkandis\gillius\GilliusADF-Regular-lf-t1--base.tfm
 INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\tfm\arkandis\gillius\GilliusADF-Regular-lf-t1--lcdfj.tfm
-INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\fontawesome\fontawesometwo.enc
 INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\vf\arkandis\gillius\GilliusADF-Bold-lf-t1.vf
 INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\tfm\arkandis\gillius\GilliusADF-Bold-lf-t1--base.tfm
 INPUT C:\Users\admin\AppData\Local\Programs\MiKTeX\fonts\tfm\arkandis\gillius\GilliusADF-Bold-lf-t1--lcdfj.tfm
