@@ -106,10 +106,10 @@
     \vcenteredhbox{\icon{#1}{#2}{#5}}  \hspace{2pt} \href{mailto:#4}{\textcolor{#5}{#3}}
 }
 
-% icon with linkedIn link
-\newcommand{\iconlinkedin}[2]{ 						
-    \faLinkedin \href{#1}{\textcolor{black}{LinkedIn}}
-}
+% icon with LinkedIn link
+\newcommand{\iconlinkedin}[1]{ 						
+    \vcenteredhbox{\hspace{5pt}\textcolor{royalpurple}{\faLinkedin}} \hspace{8pt}\href{#1}{\textcolor{black}{LinkedIn}}
+} 
 
 %----------------------------------------------------------------------------------------
 %	PAGE LAYOUT  DEFINITIONS
@@ -449,14 +449,13 @@
 \vspace{26pt}
 \cvsection{CONTACT} 
 	
-\icontext{MapMarker}{12}{30 Woodlands Dr 16, \\Forestville 11\#22\\Singapore 737769}{black}\\[6pt]
-\icontext{MobilePhone}{12}{+65 98881351}{black}\\[6pt]
+\icontext{MapMarker}{12}{30 Woodlands Dr 16, \\Forestville 11\#22\\Singapore 737769}{black}\\[8pt]
+\icontext{MobilePhone}{12}{+65 98881351}{black}\\[8pt]
 \begin{minipage}{\textwidth}
-	\iconemail{Envelope}{12}{lawmingqi1818@gmail.com}{}{black}\\[6pt]
-\end{minipage}\\[6pt]
-
+	\iconemail{Envelope}{12}{lawmingqi1818@gmail.com}{}{black}\\[8pt]
+\end{minipage}
 \begin{minipage}{\textwidth}
-	\iconlinkedin{https://www.linkedin.com/in/law-ming-qi/}{black}\\[6pt]
+	\iconlinkedin{https://www.linkedin.com/in/law-ming-qi/}{}\\[6pt]
 \end{minipage}
 
 
@@ -529,8 +528,7 @@
 {PSM 1 - Professional Scrum Master 1}
 {}
 {}
-{Certificate issued by Scrum.org to prove abilities in the fundamental level of Scrum mastery}
-
+{}
 \cvmetaevent
 {Google Project Management}
 {}
@@ -622,11 +620,7 @@
 {\cvlist{ \item Provided customer assistance and maintained organized shelves. }} 
 {}
 {}
-{\textbf{Soft Skills Obtained}: 
-\\Effective communication with customers and team member 
-\\Strong ability to work in fast-paced environments
-\\Work collaboratively in a team
-\\Adaptability to changing customer needs}
+{}
 \vfill\null
 
 
@@ -658,7 +652,7 @@
 	{Orchid Park Secondary School}
 	{Wushu}
 	{\cvlist{
-		\item \textbf{Captain}, Wushu School Team (2021 - 2022) \\– Led team training and provided coaching support.
+		\item \textbf{Captain}, Wushu School Team (2021 - 2022)
 		\item Participated in the \textbf{National School Games (NSG)} in 2021 and 2022.
 		\item Achieved \textbf{Top 10} in the 2022 NSG for 1st International Nandao Female \\category.
 	}}

@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1730563880.30435 "c:/Users/admin/OneDrive - Ngee Ann Polytechnic/resume/latexcv/sidebarleft/main.tex" "main.pdf" "main" 1730563882.83207 0
+["pdflatex"] 1730612706.55128 "c:/Users/admin/OneDrive - Ngee Ann Polytechnic/resume/latexcv/sidebarleft/main.tex" "main.pdf" "main" 1730612708.95967 0
   "6275921855365889224.jpg" 1726153992 80540 a92b8a4de36fe52c935ffe07d729d0de ""
   "C:/Users/admin/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1726033949 131133 b14c973bac987412650cfb7cf2edc449 ""
   "C:/Users/admin/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1726032682 24225046 cbcc9124b1dc76e894985a628c29f70f ""
@@ -184,10 +184,10 @@
   "C:/Users/admin/AppData/Local/Programs/MiKTeX/tex/latex/xifthen/xifthen.sty" 1448274436 5689 1bfa68243e89a54479e7d0580773c57e ""
   "C:/Users/admin/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/admin/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
-  "c:/Users/admin/OneDrive - Ngee Ann Polytechnic/resume/latexcv/sidebarleft/main.tex" 1730563879 24028 64a95b2647b257cb25f69d92cae81b50 ""
-  "main.aux" 1730563882 201 5de32cbdd88c7f742d6c93b7ce727697 "pdflatex"
-  "main.out" 1730563881 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1730563879 24028 64a95b2647b257cb25f69d92cae81b50 ""
+  "c:/Users/admin/OneDrive - Ngee Ann Polytechnic/resume/latexcv/sidebarleft/main.tex" 1730612705 23711 b9f16d1fbea1a3a611d581385bccaea8 ""
+  "main.aux" 1730612708 201 5de32cbdd88c7f742d6c93b7ce727697 "pdflatex"
+  "main.out" 1730612708 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1730612705 23711 b9f16d1fbea1a3a611d581385bccaea8 ""
   (generated)
   "main.aux"
   "main.log"
